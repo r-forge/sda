@@ -1,0 +1,293 @@
+\documentclass[article, 11pt, oneside]{memoir}
+\usepackage{Sweave}
+\usepackage[OT1]{fontenc}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+% \VignetteIndexEntry{SDAusingsurvey}
+
+\title{Reproduction of Analyses in Lohr (1999)\\ 
+       using the \texttt{survey} package}
+\author{Tobias Verbeke}
+\date{2009-09-15}
+\maketitle
+
+<<loadPkg>>=
+  library(SDA)
+  library(survey)
+@
+
+\chapter{Chapter 3: Ratio and Regression Estimation}
+
+<<>>=
+  ### Page 75 in the middle
+  pf <- data.frame(photo = c(10, 12, 7, 13, 13, 6, 17, 
+          16, 15, 10, 14, 12, 10, 5,
+          12, 10, 10, 9, 6, 11, 7, 9, 11, 10, 10),
+      field = c(15, 14, 9, 14, 8, 5, 18, 15, 13, 15, 11, 15, 12,
+          8, 13, 9, 11, 12, 9, 12, 13, 11, 10, 9, 8))
+@
+
+<<>>=
+  ### Page 72, table 3.3
+  df <- data.frame(tree = 1:10, 
+      x = c(1, 0, 8, 2, 76, 60, 25, 2, 1, 31),
+      y = c(0, 0, 1, 2, 10, 15, 3, 2, 1, 27))
+  names(df) <- c("tree", "x", "y")
+@
+
+
+\chapter{Chapter 5}
+
+<<>>=
+  ### Example 5.2, p. 137 middle
+  txt <- 
+  "person_num cluster gpa
+  1 1 3.08
+  2 1 2.60
+  3 1 3.44
+  4 1 3.04
+  1 2 2.36
+  2 2 3.04
+  3 2 3.28
+  4 2 2.68
+  1 3 2.00
+  2 3 2.56
+  3 3 2.52
+  4 3 1.88
+  1 4 3.00
+  2 4 2.88
+  3 4 3.44
+  4 4 3.64
+  1 5 2.68
+  2 5 1.92
+  3 5 3.28
+  4 5 3.20"
+  
+  txtConn <- textConnection(txt)
+  GPA <- read.table(txtConn, header = TRUE)
+  
+  GPA$pwt <- 100/5
+  
+  clusterDesign <- svydesign(ids = ~ cluster, weights = ~ pwt, data = GPA)
+  
+  svytotal(~ gpa, design = clusterDesign)
+  #      total     SE 
+  # gpa 1130.4 67.167
+  
+  # Stata results: 1130.4   67.16666 ---> corresponds perfectly
+@
+
+\chapter{Chapter 6: Sampling with Unequal Probabilities}
+
+% cf. 
+% http://statistics.ats.ucla.edu/stat/stata/examples/lohr/lohrstata6.htm
+%
+
+<<readStatepop>>=
+  data(statepop)
+  statepop$psi <- statepop$popn / 255077536
+@
+
+<<fig=TRUE>>=
+	### page 191, figure 6.1
+  plot(phys ~ psi, data = statepop, 
+       xlab = expression(paste(Psi[i], " for County")),
+       ylab = "Physicians in County (in thousands)")
+@
+
+% TODO aanvullen met rest van gegevens op pagina
+
+\chapter{Chapter 7: Complex Surveys}
+
+\section{Estimating a Distribution Function}
+
+<<fig=TRUE>>=
+	### Figure 7.1
+  data(htpop)
+  popecdf <- ecdf(htpop$height)
+  plot(popecdf, do.points = FALSE, ylab = "F(y)", 
+       xlab = "Height Value, y")
+@
+
+<<fig=TRUE>>=
+  ### Figure 7.2
+  minht <- min(htpop$height)
+  breaks <- c(minht-1, seq(from = minht, to = max(htpop$height), by = 1))
+  hist(htpop$height, ylab = "f(y)", breaks = breaks, 
+       xlab = "Height Value, y", freq = FALSE)
+@
+
+<<fig=TRUE>>=
+  ### Figure 7.3
+  data(htsrs)
+  hist(htsrs$height, ylab = "Relative Frequency", 
+       xlab = "Height (cm)", freq = FALSE)
+@
+
+% TODO Figure 7.3 can be improved (change number of breaks) 
+
+<<fig=TRUE>>=
+  ### Figure 7.4
+  data(htstrat)
+  hist(htstrat$height, ylab = "Relative Frequency", 
+      xlab = "Height (cm)", freq = FALSE)
+@
+
+<<fig=TRUE>>=
+	### Figure 7.5 (a)
+  minht <- min(htstrat$height)
+  breaks <- c(minht-1, seq(from = minht, to = max(htstrat$height), by = 1))
+  hist(htstrat$height, ylab = expression(hat(f)(y)), breaks = breaks, 
+       xlab = "Height Value, y", freq = FALSE)
+@
+
+<<fig=TRUE>>=
+  ### Figure 7.5 (b)
+  stratecdf <- ecdf(htstrat$height)
+  plot(stratecdf, do.points = FALSE, ylab = expression(hat(F)(y)), 
+       xlab = "Height Value, y")
+@
+
+\section{Plotting Data from a Complex Survey}
+
+<<fig=TRUE>>=
+	### Figure 7.6
+  data(syc)
+  hist(syc$age, freq = FALSE, xlab = "Age")
+@
+
+% TODO add Figure 7.7 (?)
+
+Note that in its current implementation, \texttt{svyboxplot} will
+only plot minimum and maximum as outliers if they are situated 
+outside the whiskers. Other outliers are not plotted 
+(see \texttt{?svyboxplot}). This explains the minor difference with
+Figure 7.8 on p. 237 of Lohr (1999).
+
+<<fig=TRUE>>=
+  ### Figure 7.8
+  sycdesign <- svydesign(ids= ~ psu, strata = ~ stratum,
+     data = syc, weights=~finalwt)
+  # p. 235: "Each of the 11 facilities with 360 or more youth
+  # formed its own stratum (strata 6-16)", so in order
+  # to avoid a lonely.psu error message
+  #  Error in switch(lonely.psu, certainty = scale * crossprod(x), remove = scale *  : 
+  #          Stratum (6) has only one PSU at stage 1
+  # we set the option to "certainty" for this example
+  # to see the problem, use: by(syc$psu, syc$stratum, unique) 
+  oo <- options(survey.lonely.psu = "certainty")
+  svyboxplot(age ~ factor(stratum), design = sycdesign) # mind the factor
+  options(oo)
+@
+
+This kind of plot is particularly easy to formulate
+in the grammar of graphics, i.e. using the \texttt{ggplot2}
+package~:
+
+<<fig=TRUE>>=
+  ### Figure 7.9
+  p <- ggplot(syc, aes(x = factor(stratum), y = factor(age)))
+  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..sum..)) 
+  print(g)
+@
+
+% TODO: check that it is really the sum of finalwt that is displayed     
+     
+Note that in its current implementation, \texttt{svyboxplot} will
+only plot minimum and maximum as outliers if they are situated 
+outside the whiskers. Other outliers are not plotted 
+(see \texttt{?svyboxplot}). This explains the minor difference with
+Figure 7.10 on p. 238 of Lohr (1999).
+ 
+     
+<<fig=TRUE>>=
+	### Figure 7.10
+  oo <- options(survey.lonely.psu = "certainty")
+  sycstrat5 <- subset(sycdesign, stratum == 5)
+  svyboxplot(age ~ factor(psu), design = sycstrat5)
+  options(oo)
+@
+
+<<fig=TRUE>>=
+  ### Figure 7.11
+  sycstrat5df <- subset(syc, stratum == 5)
+  p <- ggplot(sycstrat5df, aes(x = factor(psu), y = factor(age)))
+  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..sum..)) 
+  print(g)
+@
+
+
+
+\chapter{Chapter 10: Categorical Data Analysis in Complex Surveys}
+
+\section{Chi-Square Tests with Multinomial Sampling}
+
+<<>>=
+  ### Example 10.1
+  hh <- rbind(c(119, 188),
+              c(88, 105))
+  rownames(hh) <- c("cableYes", "cableNo")
+  colnames(hh) <- c("computerYes", "computerNo")
+  addmargins(hh)
+  chisq.test(hh, correct = FALSE)  # OK      
+@
+
+% TODO: add G^2
+
+
+<<>>=
+	### Example 10.2 (nursing students and tutors)
+  nst <- rbind(c(46, 222),
+               c(41, 109),
+               c(17, 40),
+               c(8, 26))
+  colnames(nst) <- c("NR", "R")
+  rownames(nst) <- c("generalStudent", "generalTutor", "psychiatricStudent", 
+      "psychiatricTutor")
+  addmargins(nst)
+  chisq.test(nst, correct = FALSE) # OK        
+@
+
+<<>>=
+	### Example 10.3 (Air Force Pilots)
+  afp <- data.frame(nAccidents = 0:7, 
+                    nPilots = c(12475, 4117, 1016, 269, 53, 14, 6, 2))
+  # estimate lambda
+  lambdahat <- sum(afp$nAccidents * afp$nPilots  / sum(afp$nPilots))
+  # expected counts
+  observed <- afp$nPilots
+  expected <- dpois(0:7, lambda = lambdahat) * sum(afp$nPilots)
+  sum((observed - expected)^2 / expected) # NOT OK
+@
+
+% TODO check what is wrong here: different Chi-Square value ?!
+
+\section{Effects of Survey Design on Chi-Square Tests}
+
+<<>>=
+	### Example 10.4
+  hh2 <- rbind(c(238, 376),
+               c(176, 210))
+  rownames(hh2) <- c("cableYes", "cableNo")
+  colnames(hh2) <- c("computerYes", "computerNo")
+  addmargins(hh2)
+  chisq.test(hh2, correct = FALSE)  # OK
+@
+
+\section{Corrections to Chi-Square Tests}
+
+% from ?svychisq
+% 'svychisq' computes first and second-order Rao-Scott corrections
+% to the Pearson chisquared test, and two Wald-type tests.
+
+<<>>=
+	### example 10.5
+@
+
+
+\chapter{Chapter 11: Regression with Complex Survey Data}
+
+
+
+\end{document}
