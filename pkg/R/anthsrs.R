@@ -1,0 +1,15 @@
+#' Length of Left Middle Finger and Height for an SRS of Size 200 
+#' 
+#' Length of left middle finger and height for an SRS of 200 
+#' criminals from the anthrop dataset
+#' @docType data
+#' @format Data frame with the following 2 variables: 
+#' \describe{
+#'   \item{finger}{length of left middle finger (cm)}
+#'   \item{height}{height (inches)}
+#' }
+#' @source Macdonell (1991)
+#' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. TODO and
+#'   438.
+#' @export
+roxygen()
