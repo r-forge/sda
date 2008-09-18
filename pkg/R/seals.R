@@ -1,0 +1,17 @@
+#' Breathing Holes of Seals  
+#'
+#' Data on number of breathing holes found in sampled areas of Svalbard 
+#' fjords, reconstructed from summary statistics given in Lydersen and
+#' Ryg (1991) 
+#' @docType data
+#' @format Data frame with the following 2 variables: % TODO 
+#' \describe{
+#'   \item{zone}{zone number for sampled area}
+#'   \item{holes}{number of breathing holes Imjak found in area}
+#' }
+#' @note The data are used in Chapter 4, Exercise 11.
+#' @source Lydersen and Ryg (1991). 
+#' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. TODO and
+#'   444. 
+#' @export
+roxygen()

@@ -5,6 +5,11 @@
 #' @docType data
 #' @format Data frame with the following 11 variables: 
 #' \describe{
+#'   \item{clutch}{clutch number from which eggs were subsampled}
+#'   \item{csize}{number of eggs in clutch (Mi)}
+#'   \item{length}{length of egg (mm)}
+#'   \item{breadth}{maximum breadth of egg (mm)}
+#'   \item{volume}{calculated as 0.00507 x length x breadth^2}
 #' }   
 #' @note Not all observations are used for this data set, so
 #' results may not agree with those in Arnold (1991)
