@@ -10,6 +10,8 @@
 #'   \item{length}{length of egg (mm)}
 #'   \item{breadth}{maximum breadth of egg (mm)}
 #'   \item{volume}{calculated as 0.00507 x length x breadth^2}
+#'   \item{tmt}{received supplemental feeding? factor with levels
+#'     \code{no} and \code{yes}}
 #' }   
 #' @note Not all observations are used for this data set, so
 #' results may not agree with those in Arnold (1991)

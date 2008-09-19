@@ -8,7 +8,7 @@
 #'   \item{number}{number of the book selected}
 #'   \item{purchase}{purchase cost of the book}
 #'   \item{replace}{replacement cost of book}
-#' @note Used in exercise 6 of chapter 5.
+#' @note Used in Exercise 6 of Chapter 5.
 #' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. TODO and
 #'   439. 
 #' @export

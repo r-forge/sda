@@ -4,7 +4,7 @@
 #' @format Data frame with the following 18 variables: 
 #' \describe{
 #'   \item{RN}{random number used to select the country}
-#'   \item{state}{state}
+#'   \item{state}{state (two-letter abbreviation)}
 #'   \item{county}{county}
 #'   \item{landarea}{land area, 1990 (square miles)}
 #'   \item{totpop}{total population, 1992}
