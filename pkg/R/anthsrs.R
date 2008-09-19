@@ -8,7 +8,8 @@
 #'   \item{finger}{length of left middle finger (cm)}
 #'   \item{height}{height (inches)}
 #' }
-#' @source Macdonell (1991)
+#' @source Macdonell, W. R. (1901). On criminal anthropometry and the
+#' identification of criminals, \emph{Biometrika}, 1: 177--227.
 #' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. TODO and
 #'   438.
 #' @export
