@@ -10,5 +10,9 @@ Description: Functions and Datasets from Lohr, S. (1999), Sampling:
 Depends: survey, ggplot2, roxygen
 License: GPL-3
 LazyData: Yes
-Collate: 'htpop.R' 'htsrs.R' 'htstrat.R' 'lahiri.design.R' 'statepop.R'
-    'syc.R'
+Collate: 'agpop.R' 'agsrs.R' 'agstrat.R' 'anthrop.R' 'anthsrs.R'
+    'anthuneq.R' 'audit.R' 'books.R' 'certify.R' 'coots.R' 'counties.R'
+    'divorce.R' 'golfsrs.R' 'htpop.R' 'htsrs.R' 'htstrat.R' 'journal.R'
+    'lahiri.design.R' 'measles.R' 'ncvs.R' 'nybight.R' 'otters.R'
+    'ozone.R' 'samples.R' 'seals.R' 'statepop.R' 'syc.R' 'teachersmi.R'
+    'teachers.R' 'teachnr.R'
