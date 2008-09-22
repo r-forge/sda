@@ -14,7 +14,7 @@
 #' }
 #' @note The study is described in Exercise 16 of Chapter 15. The 
 #' actual date are given in \code{\link{teachers}}. Cluster size data for
-#' the original study are given in \code{\link{teachermi}}.
+#' the original study are given in \code{\link{teachmi}}.
 #' @source Data courtesy of Rita Gnap (1995).
 #' @references Gnap, R. (1995). Teacher load in Arizona elementary school 
 #' districts in Maricopa County. Ph.D. diss., Arizona State University 
