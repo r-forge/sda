@@ -1,7 +1,7 @@
 #' Length of Left Middle Finger and Height for 3000 Criminals 
 #' 
 #' Length of left middle finger and height for 3000 criminals
-#' @name athrop
+#' @name anthrop
 #' @docType data
 #' @format Data frame with the following 2 variables: 
 #' \describe{

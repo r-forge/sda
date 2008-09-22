@@ -2,7 +2,7 @@
 #' 
 #' Height and gender for a stratified random sample of 160 women
 #' and 40 men taken from the htpop population
-#' @name htstract
+#' @name htstrat
 #' @docType data
 #' @format \describe{
 #'   \item{rn}{random number used to select the unit}
