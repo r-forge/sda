@@ -1,5 +1,6 @@
 #' Data from the 1994 Survey of ASA Membership on Certification 
 #'
+#' @name certify
 #' @docType data
 #' @format Data frame with the following 11 variables: 
 #' \describe{

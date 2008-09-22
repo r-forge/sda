@@ -2,6 +2,7 @@
 #' 
 #' Simple Random Sample (SRS) of 120 golf courses taken from 
 #'  the population of the Website www.golfcourse.com
+#' @name golfsrs
 #' @docType data
 #' @format Data frame with the following 16 variables: 
 #' \describe{

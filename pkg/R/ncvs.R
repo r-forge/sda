@@ -3,6 +3,7 @@
 #' Selected variables for victimization incidents in the 
 #' July-December 1989 NCVS. Note that some variables were 
 #' recoded from the original data file.
+#' @name ncvs
 #' @docType data
 #' @format Data frame with the following seven variables: 
 #' \describe{

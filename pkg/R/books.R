@@ -1,6 +1,7 @@
 #' Data from Home Owner's Survey on Total Number of Books 
 #'
 #' Data from home owner's survey on total number of books 
+#' @name books
 #' @docType data
 #' @format Data frame with the following 6 variables: 
 #' \describe{

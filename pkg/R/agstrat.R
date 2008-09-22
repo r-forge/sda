@@ -1,6 +1,7 @@
 #' Data from a stratified random sample of size 300 from 
 #' the U.S. 1992 Census of Agriculture.
 #' 
+#' @name agstrat
 #' @docType data
 #' @format Data frame with the following 17 variables: 
 #' \describe{

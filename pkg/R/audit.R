@@ -1,5 +1,6 @@
 #' Selection of Accounts for Audit in Example 6.11 
 #' 
+#' @name audit
 #' @docType data
 #' @format Data frame with the following 6 variables: 
 #' \describe{

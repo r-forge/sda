@@ -5,6 +5,7 @@
 #' at the end of 1987 were interviewed about family background, previous
 #' criminal history, and drug and alcohol use. Selected variables from the
 #' survey are contained in the syc data frame.
+#' @name syc
 #' @docType data
 #' @format \describe{
 #'   \item{stratum}{stratum number}

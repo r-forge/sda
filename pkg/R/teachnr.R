@@ -2,6 +2,7 @@
 #' 
 #' Follow-up study of nonrespondents from the Gnap (1995) study on the
 #' workload of elementary school teachers in Maricopa County, Arizona.
+#' @name teachnr
 #' @docType data
 #' @format data frame with the following 6 variables:
 #' \describe{

@@ -1,5 +1,6 @@
 #' Data from an SRS of 100 of the 3141 Counties in the U.S. 
 #'
+#' @name counties
 #' @docType data
 #' @format Data frame with the following 18 variables: 
 #' \describe{

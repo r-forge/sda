@@ -2,6 +2,7 @@
 #' 
 #' Length of left middle finger and height for an SRS of 200 
 #' criminals from the anthrop dataset
+#' @name anthsrs
 #' @docType data
 #' @format Data frame with the following 2 variables: 
 #' \describe{

@@ -1,5 +1,6 @@
 #' Data from a SRS of size 300 from the U.S. 1992 Census of Agriculture
 #' 
+#' @name agsrs
 #' @docType data
 #' @format Data frame with the following 14 variables: 
 #' \describe{

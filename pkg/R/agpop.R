@@ -1,5 +1,6 @@
 #' Data from the U.S. 1992 Census of Agriculture
 #' 
+#' @name agpop
 #' @docType data
 #' @format Data frame with the following 15 variables: 
 #' \describe{

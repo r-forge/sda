@@ -1,5 +1,6 @@
 #' Height and gender of 2000 persons in an artificial population
 #' 
+#' @name htpop
 #' @docType data
 #' @format \describe{
 #'   \item{height}{height of person, cm}

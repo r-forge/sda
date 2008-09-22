@@ -1,5 +1,6 @@
 #' Types of Sampling Used for Articles in a Sample of Journals 
 #'
+#' @name journal
 #' @docType data
 #' @format Data frame with the following 3 variables: 
 #' \describe{

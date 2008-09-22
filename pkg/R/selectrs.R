@@ -2,6 +2,7 @@
 #'
 #' Steps used in selecting the simple random sample (SRS) in Example 2.4
 #' of Lohr(1999).
+#' @name selectrs
 #' @docType data
 #' @format Data frame with the following 5 variables: 
 #' \describe{

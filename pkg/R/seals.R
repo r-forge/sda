@@ -3,6 +3,7 @@
 #' Data on number of breathing holes found in sampled areas of Svalbard 
 #' fjords, reconstructed from summary statistics given in Lydersen and
 #' Ryg (1991) 
+#' @name seals
 #' @docType data
 #' @format Data frame with the following 2 variables: 
 #' \describe{

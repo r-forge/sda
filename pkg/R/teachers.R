@@ -2,6 +2,7 @@
 #' 
 #' Selected variables from a study on elementary school teacher workload
 #' in Maricopa County, Arizona.
+#' @name teachers
 #' @docType data
 #' @format data frame with the following 6 variables:
 #' \describe{

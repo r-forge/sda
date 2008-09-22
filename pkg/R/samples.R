@@ -2,6 +2,7 @@
 #'
 #' All possible SRSs that can be generated from the population
 #' in Example 2.1 of Lohr(1999).
+#' @name samples
 #' @docType data
 #' @format Data frame with the following 10 variables: % TODO 
 #' \describe{

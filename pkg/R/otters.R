@@ -2,6 +2,7 @@
 #' 
 #' Data on number of holts (dens) in Shetland, United Kingdom used
 #' in Kruuk et al. (1989). (Data courtesy of Hans Kruuk).
+#' @name otters
 #' @docType data
 #' @format Data frame with the following three variables: 
 #' \describe{

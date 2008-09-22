@@ -2,6 +2,7 @@
 #' 
 #' Hourly ozone readings in parts per billion (ppb) from Eskdalemuir,
 #'   Scotland, for 1994 and 1995
+#' @name ozone
 #' @docType data
 #' @format Data frame with the following 25 variables: 
 #' \describe{

@@ -3,6 +3,7 @@
 #' Roberts et al. (1995) report on the results of a survey of parents whose
 #' children had not been immunized against measles during a recent campaign
 #' to immunize all children in the first five years of secondary school.
+#' @name measles
 #' @docType data
 #' @format Data frame with 11 variables. A parent who refused consent 
 #' (variable 4) was asked why, with responses in variables 5-10.

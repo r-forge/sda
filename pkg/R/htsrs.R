@@ -1,5 +1,6 @@
 #' Height and gender for an SRS of 200 persons, taken from htpop
 #' 
+#' @name htsrs
 #' @docType data
 #' @format \describe{
 #'   \item{rn}{random number used to select the unit}

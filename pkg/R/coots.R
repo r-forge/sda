@@ -2,6 +2,7 @@
 #'
 #' Selected information on egg size from coots, from a study
 #' by Arnold (1991). Data courtesy of Todd Arnold.
+#' @name coots
 #' @docType data
 #' @format Data frame with the following 11 variables: 
 #' \describe{

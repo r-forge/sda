@@ -1,6 +1,7 @@
 #' Unequal-Probability Sample of Counties in the US
 #' 
 #' counties selected with probability proportional to 1992 population
+#' @name statepop
 #' @docType data
 #' @format \describe{
 #'   \item{state}{state abbreviation}

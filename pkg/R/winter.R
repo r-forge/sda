@@ -4,6 +4,8 @@
 #' Survey, taken in January 1995. This survey was taken to investigate
 #' the attitudes and opinions of university employees toward the closing
 #' of the university between December 25 and January 1.
+#'
+#' @name winter
 #' @docType data
 #' @format data frame with the following 6 variables:
 #' \describe{

@@ -2,6 +2,7 @@
 #' 
 #' Data collected in the New York Bight for June 1974 and 
 #' June 1975 (Wilk et al. 1977)
+#' @name nybight
 #' @docType data
 #' @format Data frame with the following 7 variables: 
 #' \describe{

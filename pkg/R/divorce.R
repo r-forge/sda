@@ -2,6 +2,7 @@
 #'
 #' Data from a sample of divorce records for states in the
 #' Divorce Registration Area (National Center for Health Statistics 1987)
+#' @name divorce
 #' @docType data
 #' @format Data frame with the following 20 variables: 
 #' \describe{
