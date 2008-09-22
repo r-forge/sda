@@ -1,5 +1,5 @@
-\name{teachersmi}
-\alias{teachersmi}
+\name{teachmi}
+\alias{teachmi}
 \title{Cluster Sizes for Elementary School Teacher Workload Data...}
 \description{Cluster Sizes for Elementary School Teacher Workload Data}
 \details{Cluster sizes for the study on elementary school teacher workload
