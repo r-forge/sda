@@ -1,7 +1,7 @@
 Package: SDA
 Type: Package
 Title: Sampling: Design and Analysis
-Version: 0.0-1
+Version: 0.1
 Date: 2008-09-15
 Author: Tobias Verbeke
 Maintainer: Tobias Verbeke <tobias.verbeke@gmail.com>
@@ -15,4 +15,4 @@ Collate: 'agpop.R' 'agsrs.R' 'agstrat.R' 'anthrop.R' 'anthsrs.R'
     'divorce.R' 'golfsrs.R' 'htpop.R' 'htsrs.R' 'htstrat.R' 'journal.R'
     'lahiri.design.R' 'measles.R' 'ncvs.R' 'nybight.R' 'otters.R'
     'ozone.R' 'samples.R' 'seals.R' 'selectrs.R' 'statepop.R' 'syc.R'
-    'teachersmi.R' 'teachers.R' 'teachnr.R'
+    'teachersmi.R' 'teachers.R' 'teachnr.R' 'winter.R'
