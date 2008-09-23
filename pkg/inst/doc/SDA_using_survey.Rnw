@@ -9,15 +9,29 @@
 \title{Reproduction of Analyses in Lohr (1999)\\ 
        using the \texttt{survey} package}
 \author{Tobias Verbeke}
-\date{2009-09-15}
+\date{2008-09-23}
 \maketitle
+
+\tableofcontents
+
+\chapter{Introduction} % Chapter 1
+
+The Introduction chapter does not contain any numerical
+examples demonstrating survey methodology. Before 
+reproducing the analyses of the following chapters, 
+we load the \texttt{SDA} package
 
 <<loadPkg>>=
   library(SDA)
-  library(survey)
 @
 
-\chapter{Chapter 3: Ratio and Regression Estimation}
+
+The \texttt{survey} package is loaded as well as it was specified
+as a dependency of the \texttt{SDA} package.
+
+\chapter{Simple Probability Samples} % Chapter 2
+
+\chapter{Ratio and Regression Estimation} % Chapter 3
 
 <<>>=
   ### Page 75 in the middle
@@ -36,8 +50,25 @@
   names(df) <- c("tree", "x", "y")
 @
 
+\chapter{Stratified Sampling} % Chapter 4
 
-\chapter{Chapter 5}
+\begin{figure}
+<<acresboxplot,fig=TRUE,include=FALSE>>=
+	boxplot(acres92/10^6 ~ region, xlab = "Region", 
+      ylab = "Millions of Acres", data = agstrat)
+@
+\includegraphics{SDA_using_survey-acresboxplot}
+\caption{Figure 4.1, p. 97}
+\end{figure}
+
+\chapter{Cluster Sampling with Equal Probabilities} % Chapter 5
+
+\section{Notation for Cluster Sampling}
+
+No analyses contained in this section. 
+
+\section{One-Stage Cluster Sampling}
+
 
 <<>>=
   ### Example 5.2, p. 137 middle
@@ -78,7 +109,23 @@
   # Stata results: 1130.4   67.16666 ---> corresponds perfectly
 @
 
-\chapter{Chapter 6: Sampling with Unequal Probabilities}
+\section{Two-Stage Cluster Sampling}
+
+<<fig=TRUE>>=
+  ### Figure 5.3
+	plot(volume ~ clutch, xlim = c(0,200), pch=19, data = coots,
+      xlab = "Clutch Number", ylab = "Egg Volume")
+@
+
+<<fig=TRUE>>=
+  ### Figure 5.3
+  plot(volume ~ clutch, xlim = c(0,200), pch=19, data = coots,
+      xlab = "Clutch Number", ylab = "Egg Volume")
+@
+
+% Figure 5.4 seems a good plot to test the grammar of graphics
+% (sorting statistic, mean statistic etc.)
+\chapter{Sampling with Unequal Probabilities} % Chapter 6
 
 % cf. 
 % http://statistics.ats.ucla.edu/stat/stata/examples/lohr/lohrstata6.htm
@@ -98,7 +145,7 @@
 
 % TODO aanvullen met rest van gegevens op pagina
 
-\chapter{Chapter 7: Complex Surveys}
+\chapter{Complex Surveys} % Chapter 7
 
 \section{Estimating a Distribution Function}
 
@@ -217,9 +264,12 @@ Figure 7.10 on p. 238 of Lohr (1999).
   print(g)
 @
 
+\chapter{Nonresponse} % Chapter 8
+
+\chapter{Variance Estimation in Complex Surveys} % Chapter 9
 
 
-\chapter{Chapter 10: Categorical Data Analysis in Complex Surveys}
+\chapter{Categorical Data Analysis in Complex Surveys} % Chapter 10
 
 \section{Chi-Square Tests with Multinomial Sampling}
 
@@ -286,8 +336,8 @@ Figure 7.10 on p. 238 of Lohr (1999).
 @
 
 
-\chapter{Chapter 11: Regression with Complex Survey Data}
+\chapter{Regression with Complex Survey Data} % Chapter 11
 
-
+\chapter{Other Topics in Sampling} % Chapter 12
 
 \end{document}
