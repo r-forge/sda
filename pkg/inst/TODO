@@ -1,0 +1,16 @@
+TODO list for the SDA package
+
+0.0-1
+	o commit to R-Forge
+0.1
+	o include all datasets from appendix
+0.2
+	o full vignette (including in-text datasets)
+	o first release to CRAN
+0.3
+	o reformulate examples 
+	as tests for survey package
+	in tests/ subdirectory
+0.4
+	o SURVEY and ADDGEN
+	o other functions (if necessary)
