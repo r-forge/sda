@@ -9,10 +9,15 @@
 \title{Reproduction of Analyses in Lohr (1999)\\ 
        using the \texttt{survey} package}
 \author{Tobias Verbeke}
-\date{2008-09-23}
+\date{2008-09-24}
 \maketitle
 
 \tableofcontents
+
+<<config, echo=FALSE>>=
+	options(width=65)
+@
+
 
 \chapter{Introduction} % Chapter 1
 
@@ -33,8 +38,59 @@ as a dependency of the \texttt{SDA} package.
 
 \chapter{Ratio and Regression Estimation} % Chapter 3
 
+\section{Ratio Estimation}
+
+
 <<>>=
-  ### Page 75 in the middle
+  ### Example 3.2, p. 63 
+  agsrsDesign <- svydesign(ids=~1, weights = ~1, data = agsrs)
+  svyratio(numerator = ~acres92, denominator = ~acres87, 
+      design = agsrsDesign) # proportion B hat
+@
+
+
+\begin{figure}
+<<acreagetwoyears,fig=TRUE,include=FALSE>>=
+  ### part of Example 3.2, p. 64
+  plot(I(acres92/10^6) ~ I(acres87/10^6), 
+      xlab = "Millions of Acres Devoted to Farms (1987)", 
+      ylab = "Millions of Acres Devoted to Farms (1992)", data = agsrs)
+  abline(lm(I(acres92/10^6) ~ 0 + I(acres87/10^6), # through the origin 
+          data = agsrs), col = "red", lwd = 2)
+@
+\includegraphics{SDA_using_survey-acreagetwoyears}
+\caption{Figure 3.1, p. 64}
+\end{figure}
+
+
+<<seedlingData>>=
+  ### Example 3.5, p. 72, table 3.3
+  seedlings <- data.frame(tree = 1:10, 
+      x = c(1, 0, 8, 2, 76, 60, 25, 2, 1, 31),
+      y = c(0, 0, 1, 2, 10, 15, 3, 2, 1, 27))
+  names(seedlings) <- c("tree", "x", "y")
+@
+
+% TODO cast into a appropriate data frame to 
+%      specify a cluster design (tree IDs *and* seedling IDs)
+
+\begin{figure}
+<<seedlingsplot,fig=TRUE,include=FALSE>>=
+  plot(y ~ x, data = seedlings, xlab = "Seedlings Alive (March 1992)",
+      ylab = "Seedlings That Survived (February 1994)")
+  # abline(lm(y ~ 0 + x, data = seedlings), lwd = 2, col = "red")
+  # TODO: add proper abline
+@
+\includegraphics{SDA_using_survey-acresboxplot}
+\caption{Figure 3.4, p. 73}
+\end{figure}
+
+
+
+\section{Regression Estimation}
+
+<<>>=
+  ### Example 3.6, p. 75
   pf <- data.frame(photo = c(10, 12, 7, 13, 13, 6, 17, 
           16, 15, 10, 14, 12, 10, 5,
           12, 10, 10, 9, 6, 11, 7, 9, 11, 10, 10),
@@ -42,13 +98,11 @@ as a dependency of the \texttt{SDA} package.
           8, 13, 9, 11, 12, 9, 12, 13, 11, 10, 9, 8))
 @
 
-<<>>=
-  ### Page 72, table 3.3
-  df <- data.frame(tree = 1:10, 
-      x = c(1, 0, 8, 2, 76, 60, 25, 2, 1, 31),
-      y = c(0, 0, 1, 2, 10, 15, 3, 2, 1, 27))
-  names(df) <- c("tree", "x", "y")
-@
+
+
+\section{Estimation in Domains}
+
+\section{Models for Ratio and Regression Estimation}
 
 \chapter{Stratified Sampling} % Chapter 4
 
@@ -69,35 +123,12 @@ No analyses contained in this section.
 
 \section{One-Stage Cluster Sampling}
 
-
-<<>>=
+<<gpaex>>=
   ### Example 5.2, p. 137 middle
-  txt <- 
-  "person_num cluster gpa
-  1 1 3.08
-  2 1 2.60
-  3 1 3.44
-  4 1 3.04
-  1 2 2.36
-  2 2 3.04
-  3 2 3.28
-  4 2 2.68
-  1 3 2.00
-  2 3 2.56
-  3 3 2.52
-  4 3 1.88
-  1 4 3.00
-  2 4 2.88
-  3 4 3.44
-  4 4 3.64
-  1 5 2.68
-  2 5 1.92
-  3 5 3.28
-  4 5 3.20"
-  
-  txtConn <- textConnection(txt)
-  GPA <- read.table(txtConn, header = TRUE)
-  
+  GPA <- cbind(expand.grid(1:4, 1:5), 
+      gpa = c(3.08, 2.60, 3.44, 3.04, 2.36, 3.04, 3.28, 2.68, 2.00, 2.56, 
+          2.52, 1.88, 3.00, 2.88, 3.44, 3.64, 2.68, 1.92, 3.28, 3.20))
+  names(GPA)[1:2] <- c("person_num", "cluster")
   GPA$pwt <- 100/5
   
   clusterDesign <- svydesign(ids = ~ cluster, weights = ~ pwt, data = GPA)
