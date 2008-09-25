@@ -9,7 +9,7 @@
 \title{Reproduction of Analyses in Lohr (1999)\\ 
        using the \texttt{survey} package}
 \author{Tobias Verbeke}
-\date{2008-09-24}
+\date{2008-09-25}
 \maketitle
 
 \tableofcontents
@@ -103,6 +103,32 @@ as a dependency of the \texttt{SDA} package.
 \section{Estimation in Domains}
 
 \section{Models for Ratio and Regression Estimation}
+
+<<modelreg>>=
+	### Example 3.9, p. 83
+  recacr87 <- agsrs$acres87
+  recacr87[recacr87 > 0] <- 1/recacr87[recacr87 > 0] # cf. p. 450
+  model1 <- lm(acres92 ~ 0 + acres87, weights = recacr87, data = agsrs)
+  summary(model1)
+@
+
+
+\begin{figure}
+<<modelregplot,fig=TRUE,include=FALSE>>=
+  ### Figure 3.6, p. 85
+  wtresid <- resid(model1) / sqrt(agsrs$acres87) 
+  plot(wtresid ~ I(agsrs$acres87/10^6), 
+      xlab = "Millions of Acres Devoted to Farms (1987)",
+      ylab = "Weighted Residuals")
+@
+\includegraphics{SDA_using_survey-modelregplot}
+\caption{Figure 3.6, p. 85}
+\end{figure}
+
+
+
+
+
 
 \chapter{Stratified Sampling} % Chapter 4
 
@@ -299,6 +325,12 @@ Figure 7.10 on p. 238 of Lohr (1999).
 
 \chapter{Variance Estimation in Complex Surveys} % Chapter 9
 
+\section{Linearization (Taylor Series) Methods}
+\section{Random Group Methods}
+\section{Resampling and Replication Methods}
+\section{Generalized Variance Functions}
+\section{Confidence Intervals}
+
 
 \chapter{Categorical Data Analysis in Complex Surveys} % Chapter 10
 
@@ -368,6 +400,9 @@ Figure 7.10 on p. 238 of Lohr (1999).
 
 
 \chapter{Regression with Complex Survey Data} % Chapter 11
+
+\section{Model-Based Regression in Simple Random Samples}
+\section{Regression in Complex Surveys}
 
 \chapter{Other Topics in Sampling} % Chapter 12
 
