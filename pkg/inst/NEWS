@@ -1,4 +1,6 @@
 0.1
 	o all datasets in package and documented
+	o name change to SDaA for CRAN submission
+	  (same for vignette)
 0.0-1
 	o initial commit to R-Forge

@@ -27,12 +27,12 @@ reproducing the analyses of the following chapters,
 we load the \texttt{SDA} package
 
 <<loadPkg>>=
-  library(SDA)
+  library(SDaA)
 @
 
 
 The \texttt{survey} package is loaded as well as it was specified
-as a dependency of the \texttt{SDA} package.
+as a dependency of the \texttt{SDaA} package.
 
 \chapter{Simple Probability Samples} % Chapter 2
 
@@ -58,7 +58,7 @@ as a dependency of the \texttt{SDA} package.
   abline(lm(I(acres92/10^6) ~ 0 + I(acres87/10^6), # through the origin 
           data = agsrs), col = "red", lwd = 2)
 @
-\includegraphics{SDA_using_survey-acreagetwoyears}
+\includegraphics{SDaA_using_survey-acreagetwoyears}
 \caption{Figure 3.1, p. 64}
 \end{figure}
 
@@ -81,7 +81,7 @@ as a dependency of the \texttt{SDA} package.
   # abline(lm(y ~ 0 + x, data = seedlings), lwd = 2, col = "red")
   # TODO: add proper abline
 @
-\includegraphics{SDA_using_survey-acresboxplot}
+\includegraphics{SDaA_using_survey-acresboxplot}
 \caption{Figure 3.4, p. 73}
 \end{figure}
 
@@ -121,7 +121,7 @@ as a dependency of the \texttt{SDA} package.
       xlab = "Millions of Acres Devoted to Farms (1987)",
       ylab = "Weighted Residuals")
 @
-\includegraphics{SDA_using_survey-modelregplot}
+\includegraphics{SDaA_using_survey-modelregplot}
 \caption{Figure 3.6, p. 85}
 \end{figure}
 
@@ -137,7 +137,7 @@ as a dependency of the \texttt{SDA} package.
 	boxplot(acres92/10^6 ~ region, xlab = "Region", 
       ylab = "Millions of Acres", data = agstrat)
 @
-\includegraphics{SDA_using_survey-acresboxplot}
+\includegraphics{SDaA_using_survey-acresboxplot}
 \caption{Figure 4.1, p. 97}
 \end{figure}
 
