@@ -1,3 +1,5 @@
+0.1-1
+    o fixes to comply with ggplot >= 0.8.2
 0.1
 	o all datasets in package and documented
 	o name change to SDaA for CRAN submission

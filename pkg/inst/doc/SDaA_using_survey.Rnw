@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \begin{document}
 
-% \VignetteIndexEntry{SDAusingsurvey}
+% \VignetteIndexEntry{SDaA}
 
 \title{Reproduction of Analyses in Lohr (1999)\\ 
        using the \texttt{survey} package}
@@ -292,7 +292,7 @@ package~:
 <<fig=TRUE>>=
   ### Figure 7.9
   p <- ggplot(syc, aes(x = factor(stratum), y = factor(age)))
-  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..sum..)) 
+  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..n..)) 
   print(g)
 @
 
@@ -317,7 +317,7 @@ Figure 7.10 on p. 238 of Lohr (1999).
   ### Figure 7.11
   sycstrat5df <- subset(syc, stratum == 5)
   p <- ggplot(sycstrat5df, aes(x = factor(psu), y = factor(age)))
-  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..sum..)) 
+  g <- p + stat_sum(aes(group=1, weight = finalwt, size = ..n..)) 
   print(g)
 @
 
