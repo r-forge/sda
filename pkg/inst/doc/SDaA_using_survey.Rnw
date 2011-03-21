@@ -50,7 +50,7 @@ as a dependency of the \texttt{SDaA} package.
 
 
 \begin{figure}
-<<acreagetwoyears,fig=TRUE,include=FALSE>>=
+<<acreagetwoyears, fig=TRUE, include=FALSE, keep.source=TRUE>>=
   ### part of Example 3.2, p. 64
   plot(I(acres92/10^6) ~ I(acres87/10^6), 
       xlab = "Millions of Acres Devoted to Farms (1987)", 
@@ -75,7 +75,7 @@ as a dependency of the \texttt{SDaA} package.
 %      specify a cluster design (tree IDs *and* seedling IDs)
 
 \begin{figure}
-<<seedlingsplot,fig=TRUE,include=FALSE>>=
+<<seedlingsplot, fig=TRUE, include=FALSE, keep.source=TRUE>>=
   plot(y ~ x, data = seedlings, xlab = "Seedlings Alive (March 1992)",
       ylab = "Seedlings That Survived (February 1994)")
   # abline(lm(y ~ 0 + x, data = seedlings), lwd = 2, col = "red")
@@ -114,7 +114,7 @@ as a dependency of the \texttt{SDaA} package.
 
 
 \begin{figure}
-<<modelregplot,fig=TRUE,include=FALSE>>=
+<<modelregplot, fig=TRUE, include=FALSE, keep.source=TRUE>>=
   ### Figure 3.6, p. 85
   wtresid <- resid(model1) / sqrt(agsrs$acres87) 
   plot(wtresid ~ I(agsrs$acres87/10^6), 
@@ -133,7 +133,7 @@ as a dependency of the \texttt{SDaA} package.
 \chapter{Stratified Sampling} % Chapter 4
 
 \begin{figure}
-<<acresboxplot,fig=TRUE,include=FALSE>>=
+<<acresboxplot, fig=TRUE, include=FALSE, keep.source=TRUE>>=
 	boxplot(acres92/10^6 ~ region, xlab = "Region", 
       ylab = "Millions of Acres", data = agstrat)
 @
