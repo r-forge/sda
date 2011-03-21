@@ -9,7 +9,7 @@
 \title{Reproduction of Analyses in Lohr (1999)\\ 
        using the \texttt{survey} package}
 \author{Tobias Verbeke}
-\date{2008-09-25}
+\date{2011-03-21}
 \maketitle
 
 \tableofcontents
@@ -24,7 +24,7 @@
 The Introduction chapter does not contain any numerical
 examples demonstrating survey methodology. Before 
 reproducing the analyses of the following chapters, 
-we load the \texttt{SDA} package
+we load the \texttt{SDaA} package
 
 <<loadPkg>>=
   library(SDaA)
