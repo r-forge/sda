@@ -31,4 +31,4 @@
 #' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. TODO and
 #'   TODO.
 #' @export
-roxygen()
+NULL

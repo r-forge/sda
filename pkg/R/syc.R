@@ -64,4 +64,4 @@
 #' @references Lohr (1999). Sampling: Design and Analysis, Duxbury, p. 235--239 and
 #'   445.
 #' @export
-roxygen()
+NULL
